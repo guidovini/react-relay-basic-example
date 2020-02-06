@@ -1,7 +1,7 @@
 import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 
-function fetchQuery(operation, variables) {
-  return fetch('/graphql', {
+async function fetchQuery(operation, variables) {
+  const response = await fetch('https://api.graphql.jobs/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -10,9 +10,9 @@ function fetchQuery(operation, variables) {
       query: operation.text,
       variables
     })
-  }).then((response) => {
-    return response.json();
   });
+
+  return await response.json();
 }
 
 const environment = new Environment({
