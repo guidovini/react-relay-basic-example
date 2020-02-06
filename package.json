@@ -16,12 +16,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions js jsx"
+    "relay": "relay-compiler --src ./src --schema ./scripts/schema.graphql --extensions js jsx",
+    "fetch-schema": "node scripts/fetch-schema.js"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "https://api.graphql.jobs",
   "browserslist": {
     "production": [
       ">0.2%",
