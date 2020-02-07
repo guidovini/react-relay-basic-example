@@ -4,15 +4,7 @@ type City {
   slug: String!
   country: Country!
   type: String!
-  jobs(
-    where: JobWhereInput
-    orderBy: JobOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [Job!]
+  jobs(where: JobWhereInput, orderBy: JobOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Job!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -118,15 +110,7 @@ type Commitment {
   id: ID!
   title: String!
   slug: String!
-  jobs(
-    where: JobWhereInput
-    orderBy: JobOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [Job!]
+  jobs(where: JobWhereInput, orderBy: JobOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Job!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -204,15 +188,7 @@ type Company {
   slug: String!
   websiteUrl: String!
   logoUrl: String
-  jobs(
-    where: JobWhereInput
-    orderBy: JobOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [Job!]
+  jobs(where: JobWhereInput, orderBy: JobOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Job!]
   twitter: String
   emailed: Boolean
   createdAt: DateTime!
@@ -336,24 +312,8 @@ type Country {
   slug: String!
   type: String!
   isoCode: String
-  cities(
-    where: CityWhereInput
-    orderBy: CityOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [City!]
-  jobs(
-    where: JobWhereInput
-    orderBy: JobOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [Job!]
+  cities(where: CityWhereInput, orderBy: CityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [City!]
+  jobs(where: JobWhereInput, orderBy: JobOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Job!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -480,45 +440,13 @@ type Job {
   title: String!
   slug: String!
   commitment: Commitment!
-  cities(
-    where: CityWhereInput
-    orderBy: CityOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [City!]
-  countries(
-    where: CountryWhereInput
-    orderBy: CountryOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [Country!]
-  remotes(
-    where: RemoteWhereInput
-    orderBy: RemoteOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [Remote!]
+  cities(where: CityWhereInput, orderBy: CityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [City!]
+  countries(where: CountryWhereInput, orderBy: CountryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Country!]
+  remotes(where: RemoteWhereInput, orderBy: RemoteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Remote!]
   description: String
   applyUrl: String
   company: Company
-  tags(
-    where: TagWhereInput
-    orderBy: TagOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [Tag!]
+  tags(where: TagWhereInput, orderBy: TagOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Tag!]
   isPublished: Boolean
   isFeatured: Boolean
   locationNames: String
@@ -762,15 +690,7 @@ type Remote {
   name: String!
   slug: String!
   type: String!
-  jobs(
-    where: JobWhereInput
-    orderBy: JobOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [Job!]
+  jobs(where: JobWhereInput, orderBy: JobOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Job!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -880,15 +800,7 @@ type Tag {
   id: ID!
   name: String!
   slug: String!
-  jobs(
-    where: JobWhereInput
-    orderBy: JobOrderByInput
-    skip: Int
-    after: String
-    before: String
-    first: Int
-    last: Int
-  ): [Job!]
+  jobs(where: JobWhereInput, orderBy: JobOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Job!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }

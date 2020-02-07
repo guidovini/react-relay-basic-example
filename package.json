@@ -16,8 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "relay": "relay-compiler --src ./src --schema ./scripts/schema.graphql --extensions js jsx",
-    "fetch-schema": "node scripts/fetch-schema.js"
+    "relay": "relay-compiler",
+    "fetch-schema": "node ./scripts/fetch-schema.js"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -17,7 +17,7 @@ async function main() {
   const introspectionSchemaResult = await res.json();
   const clientSchema = buildClientSchema(introspectionSchemaResult.data);
   const sdl = printSchema(clientSchema);
-  fs.writeFileSync(path.join(__dirname, 'schema.graphql'), sdl);
+  fs.writeFileSync(path.join(__dirname, '../data/schema.graphql'), sdl);
 }
 
 main().catch((e) => {

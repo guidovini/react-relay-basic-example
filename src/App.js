@@ -11,7 +11,7 @@ const variables = {
   after: null
 };
 
-const query = graphql`
+const getJobsByCityQuery = graphql`
   query AppQuery(
     $city: String!
     $first: Int
@@ -63,7 +63,7 @@ export default class App extends React.Component {
     return (
       <QueryRenderer
         environment={environment}
-        query={query}
+        query={getJobsByCityQuery}
         variables={variables}
         render={renderQuery}
       />
