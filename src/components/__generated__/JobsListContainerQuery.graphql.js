@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash d154ee189aabccfb431ba8a62ea54fd3
+ * @relayHash 26ec02964da4ecfef9b5be0538835893
  */
 
 /* eslint-disable */
@@ -11,13 +11,13 @@
 import type { ConcreteRequest } from 'relay-runtime';
 export type JobOrderByInput = "applyUrl_ASC" | "applyUrl_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "isFeatured_ASC" | "isFeatured_DESC" | "isPublished_ASC" | "isPublished_DESC" | "locationNames_ASC" | "locationNames_DESC" | "postedAt_ASC" | "postedAt_DESC" | "slug_ASC" | "slug_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "userEmail_ASC" | "userEmail_DESC" | "%future added value";
 export type JobsListContainerQueryVariables = {|
-  city: string,
+  country: string,
   first?: ?number,
   after?: ?string,
   orderBy?: ?JobOrderByInput,
 |};
 export type JobsListContainerQueryResponse = {|
-  +city: {|
+  +country: {|
     +jobs: ?$ReadOnlyArray<{|
       +id: string,
       +title: string,
@@ -51,12 +51,12 @@ export type JobsListContainerQuery = {|
 
 /*
 query JobsListContainerQuery(
-  $city: String!
+  $country: String!
   $first: Int
   $after: String
   $orderBy: JobOrderByInput
 ) {
-  city(input: {slug: $city}) {
+  country(input: {slug: $country}) {
     jobs(first: $first, after: $after, orderBy: $orderBy) {
       id
       title
@@ -92,7 +92,7 @@ const node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "kind": "LocalArgument",
-    "name": "city",
+    "name": "country",
     "type": "String!",
     "defaultValue": null
   },
@@ -123,7 +123,7 @@ v1 = [
       {
         "kind": "Variable",
         "name": "slug",
-        "variableName": "city"
+        "variableName": "country"
       }
     ]
   }
@@ -220,10 +220,10 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "city",
+        "name": "country",
         "storageKey": null,
         "args": (v1/*: any*/),
-        "concreteType": "City",
+        "concreteType": "Country",
         "plural": false,
         "selections": [
           {
@@ -305,10 +305,10 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "city",
+        "name": "country",
         "storageKey": null,
         "args": (v1/*: any*/),
-        "concreteType": "City",
+        "concreteType": "Country",
         "plural": false,
         "selections": [
           {
@@ -391,11 +391,11 @@ return {
     "operationKind": "query",
     "name": "JobsListContainerQuery",
     "id": null,
-    "text": "query JobsListContainerQuery(\n  $city: String!\n  $first: Int\n  $after: String\n  $orderBy: JobOrderByInput\n) {\n  city(input: {slug: $city}) {\n    jobs(first: $first, after: $after, orderBy: $orderBy) {\n      id\n      title\n      tags {\n        name\n        id\n      }\n      applyUrl\n      company {\n        name\n        websiteUrl\n        logoUrl\n        id\n      }\n      cities {\n        name\n        country {\n          name\n          isoCode\n          id\n        }\n        id\n      }\n      updatedAt\n      postedAt\n    }\n    id\n  }\n}\n",
+    "text": "query JobsListContainerQuery(\n  $country: String!\n  $first: Int\n  $after: String\n  $orderBy: JobOrderByInput\n) {\n  country(input: {slug: $country}) {\n    jobs(first: $first, after: $after, orderBy: $orderBy) {\n      id\n      title\n      tags {\n        name\n        id\n      }\n      applyUrl\n      company {\n        name\n        websiteUrl\n        logoUrl\n        id\n      }\n      cities {\n        name\n        country {\n          name\n          isoCode\n          id\n        }\n        id\n      }\n      updatedAt\n      postedAt\n    }\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '6350143b7c6ddba6b1a220ba6e0de03b';
+(node/*: any*/).hash = 'fcd16b6ed7da5e811b312091ca59c899';
 module.exports = node;

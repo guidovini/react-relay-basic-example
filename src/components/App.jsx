@@ -5,46 +5,47 @@ import { fetchQuery } from 'relay-runtime';
 import environment from '../environment';
 
 import SearchBox from './SearchBox';
-import CitySelector from './CitySelector';
+import LocationSelector from './LocationSelector';
 import JobsListContainer from './JobsListContainer';
 
 const query = graphql`
   query AppQuery {
-    cities {
+    countries {
       name
       slug
-      country {
+      isoCode
+      cities {
         name
-        isoCode
+        slug
       }
     }
   }
 `;
 
 function App() {
-  const [cities, setCities] = useState([]);
-  const [selectedCity, setSelectedCity] = useState('berlin');
+  const [locations, setLocations] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState('united-states');
 
   useEffect(() => {
-    fetchQuery(environment, query).then((data) => {
-      setCities(data.cities);
+    fetchQuery(environment, query).then(({ countries }) => {
+      setLocations(countries);
     });
   }, []);
 
   useEffect(() => {
-    console.log('You changed the city: ', selectedCity);
-  }, [selectedCity]);
+    console.log('You changed the location: ', selectedLocation);
+  }, [selectedLocation]);
 
   return (
     <div>
       <h1>Placeholder</h1>
-      <CitySelector
-        selectedCity={selectedCity}
-        cities={cities}
-        handleChange={setSelectedCity}
+      <LocationSelector
+        selectedLocation={selectedLocation}
+        locations={locations}
+        handleChange={setSelectedLocation}
       />
       <SearchBox />
-      <JobsListContainer selectedCity={selectedCity} />
+      <JobsListContainer selectedLocation={selectedLocation} />
     </div>
   );
 }
