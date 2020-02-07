@@ -4,6 +4,10 @@ import { QueryRenderer } from 'react-relay';
 
 import environment from '../environment';
 
+import ErrorMessage from './ErrorMessage';
+import LoadingMessage from './LoadingMessage';
+import JobsList from './JobsList';
+
 const variables = {
   city: 'berlin',
   orderBy: 'title_ASC',
@@ -47,15 +51,16 @@ const getJobsByCityQuery = graphql`
 
 const renderQuery = ({ error, props }) => {
   if (error) {
-    return <div>Error!</div>;
+    <ErrorMessage />;
   }
   if (!props) {
-    return <div>Loading...</div>;
+    <LoadingMessage />;
   }
 
-  console.log(props.city.jobs);
+  const jobs = props.city.jobs;
+  console.log(jobs);
 
-  return <div>Query fetched</div>;
+  <JobsList jobs={jobs} />;
 };
 
 export default class App extends React.Component {
