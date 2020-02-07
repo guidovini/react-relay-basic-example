@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 703d5cd29308bfebd6f23769d6a40f3d
+ * @relayHash 76848345ec9c017721d6e24b1cbf5dad
  */
 
 /* eslint-disable */
@@ -11,14 +11,13 @@
 import type { ConcreteRequest } from 'relay-runtime';
 export type AppQueryVariables = {||};
 export type AppQueryResponse = {|
-  +countries: $ReadOnlyArray<{|
+  +cities: $ReadOnlyArray<{|
     +name: string,
     +slug: string,
-    +isoCode: ?string,
-    +cities: ?$ReadOnlyArray<{|
+    +country: {|
       +name: string,
-      +slug: string,
-    |}>,
+      +isoCode: ?string,
+    |},
   |}>
 |};
 export type AppQuery = {|
@@ -30,13 +29,12 @@ export type AppQuery = {|
 
 /*
 query AppQuery {
-  countries {
+  cities {
     name
     slug
-    isoCode
-    cities {
+    country {
       name
-      slug
+      isoCode
       id
     }
     id
@@ -85,26 +83,25 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "countries",
+        "name": "cities",
         "storageKey": null,
         "args": null,
-        "concreteType": "Country",
+        "concreteType": "City",
         "plural": true,
         "selections": [
           (v0/*: any*/),
           (v1/*: any*/),
-          (v2/*: any*/),
           {
             "kind": "LinkedField",
             "alias": null,
-            "name": "cities",
+            "name": "country",
             "storageKey": null,
             "args": null,
-            "concreteType": "City",
-            "plural": true,
+            "concreteType": "Country",
+            "plural": false,
             "selections": [
               (v0/*: any*/),
-              (v1/*: any*/)
+              (v2/*: any*/)
             ]
           }
         ]
@@ -119,26 +116,25 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "countries",
+        "name": "cities",
         "storageKey": null,
         "args": null,
-        "concreteType": "Country",
+        "concreteType": "City",
         "plural": true,
         "selections": [
           (v0/*: any*/),
           (v1/*: any*/),
-          (v2/*: any*/),
           {
             "kind": "LinkedField",
             "alias": null,
-            "name": "cities",
+            "name": "country",
             "storageKey": null,
             "args": null,
-            "concreteType": "City",
-            "plural": true,
+            "concreteType": "Country",
+            "plural": false,
             "selections": [
               (v0/*: any*/),
-              (v1/*: any*/),
+              (v2/*: any*/),
               (v3/*: any*/)
             ]
           },
@@ -151,11 +147,11 @@ return {
     "operationKind": "query",
     "name": "AppQuery",
     "id": null,
-    "text": "query AppQuery {\n  countries {\n    name\n    slug\n    isoCode\n    cities {\n      name\n      slug\n      id\n    }\n    id\n  }\n}\n",
+    "text": "query AppQuery {\n  cities {\n    name\n    slug\n    country {\n      name\n      isoCode\n      id\n    }\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '77a9d114a6d46c7b315383e951022b71';
+(node/*: any*/).hash = 'e3d0ff765a63d7ba9bf9fadb8a8844f3';
 module.exports = node;

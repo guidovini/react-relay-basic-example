@@ -10,13 +10,12 @@ import JobsListContainer from './JobsListContainer';
 
 const query = graphql`
   query AppQuery {
-    countries {
+    cities {
       name
       slug
-      isoCode
-      cities {
+      country {
         name
-        slug
+        isoCode
       }
     }
   }
@@ -24,11 +23,11 @@ const query = graphql`
 
 function App() {
   const [locations, setLocations] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState('united-states');
+  const [selectedLocation, setSelectedLocation] = useState('berlin');
 
   useEffect(() => {
-    fetchQuery(environment, query).then(({ countries }) => {
-      setLocations(countries);
+    fetchQuery(environment, query).then(({ cities }) => {
+      setLocations(cities);
     });
   }, []);
 
@@ -38,7 +37,7 @@ function App() {
 
   return (
     <div>
-      <h1>Placeholder</h1>
+      <h1>GraphQL Jobs</h1>
       <LocationSelector
         selectedLocation={selectedLocation}
         locations={locations}

@@ -8,12 +8,12 @@ import JobsList from './JobsList';
 
 const query = graphql`
   query JobsListContainerQuery(
-    $country: String!
+    $location: String!
     $first: Int
     $after: String
     $orderBy: JobOrderByInput
   ) {
-    country(input: { slug: $country }) {
+    city(input: { slug: $location }) {
       jobs(first: $first, after: $after, orderBy: $orderBy) {
         id
         title
@@ -45,8 +45,8 @@ const JobsListContainer = ({ selectedLocation }) => {
 
   useEffect(() => {
     fetchQuery(environment, query, {
-      country: selectedLocation,
-    }).then(({ country }) => setJobs(country.jobs));
+      location: selectedLocation,
+    }).then(({ city }) => setJobs(city.jobs));
   }, [selectedLocation]);
 
   return <JobsList jobs={jobs} />;
