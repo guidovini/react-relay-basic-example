@@ -15,9 +15,9 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react"],
   "rules": {
-    "react/prop-types": "off",
-    "prettier/prettier": "error"
+    "react/prop-types": "off"
+    // "prettier/prettier": "error"
   }
 }
