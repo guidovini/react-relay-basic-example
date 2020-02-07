@@ -14,6 +14,7 @@ const renderQuery = ({ error, props }) => {
     return <LoadingMessage />;
   }
 
+  // eslint-disable-next-line no-console
   console.log(props);
 
   return <p>It worked!!</p>;

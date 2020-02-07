@@ -1,26 +1,13 @@
 import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
 
-import QueryRendererContainer from './QueryRendererContainer';
-
-const getAllCitiesQuery = graphql`
-  query CitySelectorQuery {
-    cities {
-      name
-      slug
-      country {
-        name
-        isoCode
-      }
-    }
-  }
-`;
-
-const CitySelector = () => (
-  <div>
-    <p>City selector</p>
-    <QueryRendererContainer query={getAllCitiesQuery} />
-  </div>
+const CitySelector = ({ cities }) => (
+  <select>
+    {cities.map((city) => (
+      <option value={city.slug} key={city.slug}>
+        {city.name}
+      </option>
+    ))}
+  </select>
 );
 
 export default CitySelector;

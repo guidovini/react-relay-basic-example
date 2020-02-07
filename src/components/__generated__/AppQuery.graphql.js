@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 24938b7b023e760737e2521444579c60
+ * @relayHash 76848345ec9c017721d6e24b1cbf5dad
  */
 
 /* eslint-disable */
@@ -9,8 +9,8 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type CitySelectorQueryVariables = {||};
-export type CitySelectorQueryResponse = {|
+export type AppQueryVariables = {||};
+export type AppQueryResponse = {|
   +cities: $ReadOnlyArray<{|
     +name: string,
     +slug: string,
@@ -20,15 +20,15 @@ export type CitySelectorQueryResponse = {|
     |},
   |}>
 |};
-export type CitySelectorQuery = {|
-  variables: CitySelectorQueryVariables,
-  response: CitySelectorQueryResponse,
+export type AppQuery = {|
+  variables: AppQueryVariables,
+  response: AppQueryResponse,
 |};
 */
 
 
 /*
-query CitySelectorQuery {
+query AppQuery {
   cities {
     name
     slug
@@ -75,7 +75,7 @@ return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "CitySelectorQuery",
+    "name": "AppQuery",
     "type": "Query",
     "metadata": null,
     "argumentDefinitions": [],
@@ -110,7 +110,7 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "CitySelectorQuery",
+    "name": "AppQuery",
     "argumentDefinitions": [],
     "selections": [
       {
@@ -145,13 +145,13 @@ return {
   },
   "params": {
     "operationKind": "query",
-    "name": "CitySelectorQuery",
+    "name": "AppQuery",
     "id": null,
-    "text": "query CitySelectorQuery {\n  cities {\n    name\n    slug\n    country {\n      name\n      isoCode\n      id\n    }\n    id\n  }\n}\n",
+    "text": "query AppQuery {\n  cities {\n    name\n    slug\n    country {\n      name\n      isoCode\n      id\n    }\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '9613def198a57f3887c99a1ce4e4432a';
+(node/*: any*/).hash = 'e3d0ff765a63d7ba9bf9fadb8a8844f3';
 module.exports = node;
