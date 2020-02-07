@@ -2,7 +2,7 @@ import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
 import { QueryRenderer } from 'react-relay';
 
-import environment from './environment';
+import environment from '../environmentt';
 
 const variables = {
   city: 'berlin',
