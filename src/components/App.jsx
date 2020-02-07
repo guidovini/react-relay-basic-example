@@ -6,6 +6,7 @@ import environment from '../environment';
 
 import SearchBox from './SearchBox';
 import CitySelector from './CitySelector';
+import JobsListContainer from './JobsListContainer';
 
 const query = graphql`
   query AppQuery {
@@ -22,6 +23,7 @@ const query = graphql`
 
 function App() {
   const [cities, setCities] = useState([]);
+  const [selectedCity, setSelectedCity] = useState('berlin');
 
   useEffect(() => {
     fetchQuery(environment, query).then((data) => {
@@ -29,11 +31,20 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    console.log('You changed the city: ', selectedCity);
+  }, [selectedCity]);
+
   return (
     <div>
       <h1>Placeholder</h1>
-      <CitySelector cities={cities} />
+      <CitySelector
+        selectedCity={selectedCity}
+        cities={cities}
+        handleChange={setSelectedCity}
+      />
       <SearchBox />
+      <JobsListContainer selectedCity={selectedCity} />
     </div>
   );
 }

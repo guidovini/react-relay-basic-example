@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const CitySelector = ({ cities }) => {
-  const [selectedCity, setSelectedCity] = useState('berlin');
-
-  useEffect(() => {
-    console.log('You changed the city: ', selectedCity);
-  }, [selectedCity]);
-
+const CitySelector = ({ selectedCity, cities, handleChange }) => {
   return (
-    <select
-      value={selectedCity}
-      onChange={(e) => setSelectedCity(e.target.value)}
-    >
+    <select value={selectedCity} onChange={(e) => handleChange(e.target.value)}>
       {cities.map((city) => (
         <option value={city.slug} key={city.slug}>
           {city.name}
