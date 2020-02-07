@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 import './styles/index.css';
-import App from './components/ App';
+import App from './components/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
