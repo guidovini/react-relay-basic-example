@@ -4,29 +4,43 @@ import { QueryRenderer } from 'react-relay';
 
 import environment from './environment';
 
+const variables = {
+  city: 'berlin',
+  orderBy: 'title_ASC',
+  first: null,
+  after: null
+};
+
 const query = graphql`
-  query AppQuery {
-    jobs {
-      id
-      title
-      cities(where: { name: "Berlin" }) {
-        name
-        country {
+  query AppQuery(
+    $city: String!
+    $first: Int
+    $after: String
+    $orderBy: JobOrderByInput
+  ) {
+    city(input: { slug: $city }) {
+      jobs(first: $first, after: $after, orderBy: $orderBy) {
+        id
+        title
+        tags {
           name
-          isoCode
         }
+        applyUrl
+        company {
+          name
+          websiteUrl
+          logoUrl
+        }
+        cities {
+          name
+          country {
+            name
+            isoCode
+          }
+        }
+        updatedAt
+        postedAt
       }
-      tags {
-        name
-      }
-      applyUrl
-      company {
-        name
-        websiteUrl
-        logoUrl
-      }
-      updatedAt
-      postedAt
     }
   }
 `;
@@ -39,7 +53,7 @@ const renderQuery = ({ error, props }) => {
     return <div>Loading...</div>;
   }
 
-  console.log(props);
+  console.log(props.city.jobs);
 
   return <div>Query fetched</div>;
 };
@@ -50,7 +64,7 @@ export default class App extends React.Component {
       <QueryRenderer
         environment={environment}
         query={query}
-        variables={{}}
+        variables={variables}
         render={renderQuery}
       />
     );
