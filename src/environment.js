@@ -15,9 +15,15 @@ async function fetchQuery(operation, variables) {
   return await response.json();
 }
 
+const source = new RecordSource();
+const store = new Store(source);
+const network = Network.create(fetchQuery);
+const handlerProvider = null;
+
 const environment = new Environment({
-  network: Network.create(fetchQuery),
-  store: new Store(new RecordSource())
+  handlerProvider,
+  network,
+  store
 });
 
 export default environment;
