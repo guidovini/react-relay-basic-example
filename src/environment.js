@@ -4,15 +4,15 @@ async function fetchQuery(operation, variables) {
   const response = await fetch('https://api.graphql.jobs/', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       query: operation.text,
-      variables
-    })
+      variables,
+    }),
   });
 
-  return await response.json();
+  return response.json();
 }
 
 const source = new RecordSource();
@@ -23,7 +23,7 @@ const handlerProvider = null;
 const environment = new Environment({
   handlerProvider,
   network,
-  store
+  store,
 });
 
 export default environment;

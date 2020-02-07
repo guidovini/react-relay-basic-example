@@ -12,7 +12,7 @@ const variables = {
   city: 'berlin',
   orderBy: 'title_ASC',
   first: null,
-  after: null
+  after: null,
 };
 
 const getJobsByCityQuery = graphql`
@@ -51,27 +51,27 @@ const getJobsByCityQuery = graphql`
 
 const renderQuery = ({ error, props }) => {
   if (error) {
-    <ErrorMessage />;
+    return <ErrorMessage />;
   }
   if (!props) {
-    <LoadingMessage />;
+    return <LoadingMessage />;
   }
 
-  const jobs = props.city.jobs;
+  // eslint-disable-next-line react/destructuring-assignment
+  const { jobs } = props.city;
+  // eslint-disable-next-line no-console
   console.log(jobs);
 
-  <JobsList jobs={jobs} />;
+  return <JobsList jobs={jobs} />;
 };
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <QueryRenderer
-        environment={environment}
-        query={getJobsByCityQuery}
-        variables={variables}
-        render={renderQuery}
-      />
-    );
-  }
-}
+const App = () => (
+  <QueryRenderer
+    environment={environment}
+    query={getJobsByCityQuery}
+    variables={variables}
+    render={renderQuery}
+  />
+);
+
+export default App;
