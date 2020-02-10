@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { fetchQuery } from 'relay-runtime';
-
-import environment from '../environment';
 
 import JobsList from './JobsList';
+import QueryRendererContainer from './QueryRendererContainer';
 
 const query = graphql`
   query JobsListContainerQuery(
@@ -46,17 +44,20 @@ const query = graphql`
   }
 `;
 
-const JobsListContainer = ({ selectedJobInput, selectedLocation }) => {
-  const [jobs, setJobs] = useState([]);
+const JobsListContainer = ({
+  selectedLocation: location,
+  selectedJobInput: jobInput,
+}) => {
+  const variables = {
+    location,
+    jobInput,
+  };
 
-  useEffect(() => {
-    fetchQuery(environment, query, {
-      location: selectedLocation,
-      jobInput: selectedJobInput.trim(),
-    }).then(({ city }) => setJobs(city.jobs));
-  }, [selectedJobInput, selectedLocation]);
-
-  return <JobsList jobs={jobs} />;
+  return (
+    <QueryRendererContainer query={query} variables={variables}>
+      <JobsList />
+    </QueryRendererContainer>
+  );
 };
 
 export default JobsListContainer;

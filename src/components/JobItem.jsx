@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JobItem = ({ job: { title, cities, company, applyUrl, tags } }) => (
+const JobItem = ({ job: { title, cities, company, applyUrl, tags } } = {}) => (
   <div>
     <h1>
       {title} - {cities[0].name}

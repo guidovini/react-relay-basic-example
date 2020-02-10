@@ -2,7 +2,11 @@ import React from 'react';
 
 import JobItem from './JobItem';
 
-const JobsList = ({ jobs }) => {
+const JobsList = (props) => {
+  const {
+    city: { jobs = [] },
+  } = props;
+
   return jobs.length > 0 ? (
     jobs.map((job) => <JobItem key={job.id} job={job} />)
   ) : (

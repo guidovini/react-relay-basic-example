@@ -6,27 +6,28 @@ import environment from '../environment';
 import ErrorMessage from './ErrorMessage';
 import LoadingMessage from './LoadingMessage';
 
-const renderQuery = ({ error, props }) => {
-  if (error) {
-    return <ErrorMessage />;
-  }
-  if (!props) {
-    return <LoadingMessage />;
-  }
+const QueryRendererContainer = ({ query, variables, children }) => {
+  const renderQuery = ({ error, props }) => {
+    if (error) {
+      return <ErrorMessage />;
+    }
+    if (!props) {
+      return <LoadingMessage />;
+    }
 
-  // eslint-disable-next-line no-console
-  console.log(props);
+    console.log(props);
 
-  return <p>It worked!!</p>;
+    return React.cloneElement(children, { ...props });
+  };
+
+  return (
+    <QueryRenderer
+      environment={environment}
+      query={query}
+      variables={variables}
+      render={renderQuery}
+    />
+  );
 };
-
-const QueryRendererContainer = ({ query, variables }) => (
-  <QueryRenderer
-    environment={environment}
-    query={query}
-    variables={variables}
-    render={renderQuery}
-  />
-);
 
 export default QueryRendererContainer;
