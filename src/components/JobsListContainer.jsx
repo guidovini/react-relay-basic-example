@@ -12,9 +12,15 @@ const query = graphql`
     $first: Int
     $after: String
     $orderBy: JobOrderByInput
+    $jobInput: String
   ) {
     city(input: { slug: $location }) {
-      jobs(first: $first, after: $after, orderBy: $orderBy) {
+      jobs(
+        first: $first
+        after: $after
+        orderBy: $orderBy
+        where: { slug_contains: $jobInput }
+      ) {
         id
         title
         tags {
@@ -40,14 +46,15 @@ const query = graphql`
   }
 `;
 
-const JobsListContainer = ({ selectedLocation }) => {
+const JobsListContainer = ({ selectedJobInput, selectedLocation }) => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
     fetchQuery(environment, query, {
       location: selectedLocation,
+      jobInput: selectedJobInput,
     }).then(({ city }) => setJobs(city.jobs));
-  }, [selectedLocation]);
+  }, [selectedJobInput, selectedLocation]);
 
   return <JobsList jobs={jobs} />;
 };

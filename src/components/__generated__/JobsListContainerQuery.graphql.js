@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 8970fdf13146b9a0ceb14adde4cfcee8
+ * @relayHash 9c5aaa5ba4b3cb365a9d77b2b7b34bf5
  */
 
 /* eslint-disable */
@@ -15,6 +15,7 @@ export type JobsListContainerQueryVariables = {|
   first?: ?number,
   after?: ?string,
   orderBy?: ?JobOrderByInput,
+  jobInput?: ?string,
 |};
 export type JobsListContainerQueryResponse = {|
   +city: {|
@@ -55,9 +56,10 @@ query JobsListContainerQuery(
   $first: Int
   $after: String
   $orderBy: JobOrderByInput
+  $jobInput: String
 ) {
   city(input: {slug: $location}) {
-    jobs(first: $first, after: $after, orderBy: $orderBy) {
+    jobs(first: $first, after: $after, orderBy: $orderBy, where: {slug_contains: $jobInput}) {
       id
       title
       tags {
@@ -113,6 +115,12 @@ var v0 = [
     "name": "orderBy",
     "type": "JobOrderByInput",
     "defaultValue": null
+  },
+  {
+    "kind": "LocalArgument",
+    "name": "jobInput",
+    "type": "String",
+    "defaultValue": null
   }
 ],
 v1 = [
@@ -143,6 +151,17 @@ v2 = [
     "kind": "Variable",
     "name": "orderBy",
     "variableName": "orderBy"
+  },
+  {
+    "kind": "ObjectValue",
+    "name": "where",
+    "fields": [
+      {
+        "kind": "Variable",
+        "name": "slug_contains",
+        "variableName": "jobInput"
+      }
+    ]
   }
 ],
 v3 = {
@@ -391,11 +410,11 @@ return {
     "operationKind": "query",
     "name": "JobsListContainerQuery",
     "id": null,
-    "text": "query JobsListContainerQuery(\n  $location: String!\n  $first: Int\n  $after: String\n  $orderBy: JobOrderByInput\n) {\n  city(input: {slug: $location}) {\n    jobs(first: $first, after: $after, orderBy: $orderBy) {\n      id\n      title\n      tags {\n        name\n        id\n      }\n      applyUrl\n      company {\n        name\n        websiteUrl\n        logoUrl\n        id\n      }\n      cities {\n        name\n        country {\n          name\n          isoCode\n          id\n        }\n        id\n      }\n      updatedAt\n      postedAt\n    }\n    id\n  }\n}\n",
+    "text": "query JobsListContainerQuery(\n  $location: String!\n  $first: Int\n  $after: String\n  $orderBy: JobOrderByInput\n  $jobInput: String\n) {\n  city(input: {slug: $location}) {\n    jobs(first: $first, after: $after, orderBy: $orderBy, where: {slug_contains: $jobInput}) {\n      id\n      title\n      tags {\n        name\n        id\n      }\n      applyUrl\n      company {\n        name\n        websiteUrl\n        logoUrl\n        id\n      }\n      cities {\n        name\n        country {\n          name\n          isoCode\n          id\n        }\n        id\n      }\n      updatedAt\n      postedAt\n    }\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'c5df83a52c46dddf710010a7faa8fc33';
+(node/*: any*/).hash = '5e2baaa4a8f86a65104a9a2cde07637c';
 module.exports = node;

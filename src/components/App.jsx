@@ -24,6 +24,7 @@ const query = graphql`
 function App() {
   const [locations, setLocations] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState('berlin');
+  const [jobInput, setJobInput] = useState('');
 
   useEffect(() => {
     fetchQuery(environment, query).then(({ cities }) => {
@@ -35,6 +36,10 @@ function App() {
     console.log('You changed the location: ', selectedLocation);
   }, [selectedLocation]);
 
+  useEffect(() => {
+    // console.log(jobInput);
+  }, [jobInput]);
+
   return (
     <div>
       <h1>GraphQL Jobs</h1>
@@ -43,8 +48,12 @@ function App() {
         locations={locations}
         handleChange={setSelectedLocation}
       />
-      <SearchBox />
-      <JobsListContainer selectedLocation={selectedLocation} />
+      <SearchBox jobInput={jobInput} handleChange={setJobInput} />
+
+      <JobsListContainer
+        selectedJobInput={jobInput}
+        selectedLocation={selectedLocation}
+      />
     </div>
   );
 }
