@@ -1,23 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import graphql from 'babel-plugin-relay/macro';
 import { fetchQuery } from 'relay-runtime';
 
 import environment from '../environment';
+import getCitiesQuery from '../data/queries/getCities';
 
 import LocationSelectorBox from './LocationSelectorBox';
-
-const query = graphql`
-  query LocationSelectorBoxContainerQuery {
-    cities {
-      name
-      slug
-      country {
-        name
-        isoCode
-      }
-    }
-  }
-`;
 
 const LocationSelectorBoxContainer = ({
   selectedLocation,
@@ -26,7 +13,7 @@ const LocationSelectorBoxContainer = ({
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    fetchQuery(environment, query).then(({ cities }) => {
+    fetchQuery(environment, getCitiesQuery).then(({ cities }) => {
       setLocations(cities);
     });
   }, []);

@@ -18,7 +18,7 @@ function App() {
       <SearchBox jobInput={jobInput} handleChange={setJobInput} />
 
       <JobsListContainer
-        selectedJobInput={jobInput}
+        jobInput={jobInput}
         selectedLocation={selectedLocation}
       />
     </div>

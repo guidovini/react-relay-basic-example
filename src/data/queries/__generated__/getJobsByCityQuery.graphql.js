@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 9c5aaa5ba4b3cb365a9d77b2b7b34bf5
+ * @relayHash 6daf5423a2bdcd1bdccc5c834eaab8d2
  */
 
 /* eslint-disable */
@@ -10,14 +10,14 @@
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type JobOrderByInput = "applyUrl_ASC" | "applyUrl_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "isFeatured_ASC" | "isFeatured_DESC" | "isPublished_ASC" | "isPublished_DESC" | "locationNames_ASC" | "locationNames_DESC" | "postedAt_ASC" | "postedAt_DESC" | "slug_ASC" | "slug_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "userEmail_ASC" | "userEmail_DESC" | "%future added value";
-export type JobsListContainerQueryVariables = {|
+export type getJobsByCityQueryVariables = {|
   location: string,
   first?: ?number,
   after?: ?string,
   orderBy?: ?JobOrderByInput,
   jobInput?: ?string,
 |};
-export type JobsListContainerQueryResponse = {|
+export type getJobsByCityQueryResponse = {|
   +city: {|
     +jobs: ?$ReadOnlyArray<{|
       +id: string,
@@ -43,15 +43,15 @@ export type JobsListContainerQueryResponse = {|
     |}>
   |}
 |};
-export type JobsListContainerQuery = {|
-  variables: JobsListContainerQueryVariables,
-  response: JobsListContainerQueryResponse,
+export type getJobsByCityQuery = {|
+  variables: getJobsByCityQueryVariables,
+  response: getJobsByCityQueryResponse,
 |};
 */
 
 
 /*
-query JobsListContainerQuery(
+query getJobsByCityQuery(
   $location: String!
   $first: Int
   $after: String
@@ -231,7 +231,7 @@ return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "JobsListContainerQuery",
+    "name": "getJobsByCityQuery",
     "type": "Query",
     "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
@@ -318,7 +318,7 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "JobsListContainerQuery",
+    "name": "getJobsByCityQuery",
     "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
@@ -408,13 +408,13 @@ return {
   },
   "params": {
     "operationKind": "query",
-    "name": "JobsListContainerQuery",
+    "name": "getJobsByCityQuery",
     "id": null,
-    "text": "query JobsListContainerQuery(\n  $location: String!\n  $first: Int\n  $after: String\n  $orderBy: JobOrderByInput\n  $jobInput: String\n) {\n  city(input: {slug: $location}) {\n    jobs(first: $first, after: $after, orderBy: $orderBy, where: {slug_contains: $jobInput}) {\n      id\n      title\n      tags {\n        name\n        id\n      }\n      applyUrl\n      company {\n        name\n        websiteUrl\n        logoUrl\n        id\n      }\n      cities {\n        name\n        country {\n          name\n          isoCode\n          id\n        }\n        id\n      }\n      updatedAt\n      postedAt\n    }\n    id\n  }\n}\n",
+    "text": "query getJobsByCityQuery(\n  $location: String!\n  $first: Int\n  $after: String\n  $orderBy: JobOrderByInput\n  $jobInput: String\n) {\n  city(input: {slug: $location}) {\n    jobs(first: $first, after: $after, orderBy: $orderBy, where: {slug_contains: $jobInput}) {\n      id\n      title\n      tags {\n        name\n        id\n      }\n      applyUrl\n      company {\n        name\n        websiteUrl\n        logoUrl\n        id\n      }\n      cities {\n        name\n        country {\n          name\n          isoCode\n          id\n        }\n        id\n      }\n      updatedAt\n      postedAt\n    }\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '5e2baaa4a8f86a65104a9a2cde07637c';
+(node/*: any*/).hash = 'dfe285fe9b743708750dd117d6edb715';
 module.exports = node;

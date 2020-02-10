@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 3f0da76679dd669bf7cee9d39bd30168
+ * @relayHash a1d19f610dd726d580ab4fff75828394
  */
 
 /* eslint-disable */
@@ -9,8 +9,8 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type LocationSelectorBoxContainerQueryVariables = {||};
-export type LocationSelectorBoxContainerQueryResponse = {|
+export type getCitiesQueryVariables = {||};
+export type getCitiesQueryResponse = {|
   +cities: $ReadOnlyArray<{|
     +name: string,
     +slug: string,
@@ -20,15 +20,15 @@ export type LocationSelectorBoxContainerQueryResponse = {|
     |},
   |}>
 |};
-export type LocationSelectorBoxContainerQuery = {|
-  variables: LocationSelectorBoxContainerQueryVariables,
-  response: LocationSelectorBoxContainerQueryResponse,
+export type getCitiesQuery = {|
+  variables: getCitiesQueryVariables,
+  response: getCitiesQueryResponse,
 |};
 */
 
 
 /*
-query LocationSelectorBoxContainerQuery {
+query getCitiesQuery {
   cities {
     name
     slug
@@ -75,7 +75,7 @@ return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "LocationSelectorBoxContainerQuery",
+    "name": "getCitiesQuery",
     "type": "Query",
     "metadata": null,
     "argumentDefinitions": [],
@@ -110,7 +110,7 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "LocationSelectorBoxContainerQuery",
+    "name": "getCitiesQuery",
     "argumentDefinitions": [],
     "selections": [
       {
@@ -145,13 +145,13 @@ return {
   },
   "params": {
     "operationKind": "query",
-    "name": "LocationSelectorBoxContainerQuery",
+    "name": "getCitiesQuery",
     "id": null,
-    "text": "query LocationSelectorBoxContainerQuery {\n  cities {\n    name\n    slug\n    country {\n      name\n      isoCode\n      id\n    }\n    id\n  }\n}\n",
+    "text": "query getCitiesQuery {\n  cities {\n    name\n    slug\n    country {\n      name\n      isoCode\n      id\n    }\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'e06f566e0426ebd3009d773a97598ab8';
+(node/*: any*/).hash = '1491f9614632d868e219d059b5e80505';
 module.exports = node;
