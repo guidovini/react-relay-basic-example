@@ -18,7 +18,7 @@ function App() {
       <SearchBox jobInput={jobInput} handleChange={setJobInput} />
 
       <JobsListContainer
-        jobInput={jobInput}
+        jobInput={jobInput.trim().toLowerCase()}
         selectedLocation={selectedLocation}
       />
     </div>
