@@ -1,9 +1,16 @@
 import React from 'react';
 
-const JobItem = ({ job: { title, cities, company, applyUrl, tags } } = {}) => (
+const JobItem = ({
+  job: {
+    title, cities, company, applyUrl, tags,
+  },
+} = {}) => (
   <div>
     <h1>
-      {title} - {cities[0].name}
+      {title}
+      {' '}
+      -
+      {cities[0].name}
     </h1>
     <h2>
       <a href={company.websiteUrl} target="_blank" rel="noopener noreferrer">
