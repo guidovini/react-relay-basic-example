@@ -52,7 +52,7 @@ const JobsListContainer = ({ selectedJobInput, selectedLocation }) => {
   useEffect(() => {
     fetchQuery(environment, query, {
       location: selectedLocation,
-      jobInput: selectedJobInput,
+      jobInput: selectedJobInput.trim(),
     }).then(({ city }) => setJobs(city.jobs));
   }, [selectedJobInput, selectedLocation]);
 
