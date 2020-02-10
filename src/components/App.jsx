@@ -5,7 +5,7 @@ import { fetchQuery } from 'relay-runtime';
 import environment from '../environment';
 
 import SearchBox from './SearchBox';
-import LocationSelector from './LocationSelector';
+import LocationSelectorBox from './LocationSelectorBox';
 import JobsListContainer from './JobsListContainer';
 
 const query = graphql`
@@ -38,7 +38,7 @@ function App() {
   return (
     <div>
       <h1>GraphQL Jobs</h1>
-      <LocationSelector
+      <LocationSelectorBox
         selectedLocation={selectedLocation}
         locations={locations}
         handleChange={setSelectedLocation}

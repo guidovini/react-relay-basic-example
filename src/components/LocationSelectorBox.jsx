@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LocationSelector = ({ selectedLocation, locations, handleChange }) => (
+const LocationSelectorBox = ({ selectedLocation, locations, handleChange }) => (
   <select
     value={selectedLocation}
     onChange={(e) => handleChange(e.target.value)}
@@ -13,4 +13,4 @@ const LocationSelector = ({ selectedLocation, locations, handleChange }) => (
   </select>
 );
 
-export default LocationSelector;
+export default LocationSelectorBox;
