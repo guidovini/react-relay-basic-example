@@ -1,7 +1,5 @@
 import React from 'react';
 
-const SearchBox = () => {
-  return <input />;
-};
+const SearchBox = () => <input placeholder="Search for jobs" />;
 
 export default SearchBox;
