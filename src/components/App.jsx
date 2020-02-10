@@ -32,14 +32,6 @@ function App() {
     });
   }, []);
 
-  useEffect(() => {
-    console.log('You changed the location: ', selectedLocation);
-  }, [selectedLocation]);
-
-  useEffect(() => {
-    // console.log(jobInput);
-  }, [jobInput]);
-
   return (
     <div>
       <h1>GraphQL Jobs</h1>
