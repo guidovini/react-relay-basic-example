@@ -16,6 +16,10 @@
 - [GraphQL Cursor Connections Specification](https://relay.dev/graphql/connections.htm)
 - [Data Masking in GraphQL Clients](https://www.youtube.com/watch?v=ww5UQ50oHok)
 
+## React articles
+
+- [React.cloneElement discussion](https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children)
+
 ## Relay Examples
 
 - <https://github.com/adeira/relay-example>
