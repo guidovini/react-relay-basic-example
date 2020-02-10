@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 76848345ec9c017721d6e24b1cbf5dad
+ * @relayHash 3f0da76679dd669bf7cee9d39bd30168
  */
 
 /* eslint-disable */
@@ -9,8 +9,8 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type AppQueryVariables = {||};
-export type AppQueryResponse = {|
+export type LocationSelectorBoxContainerQueryVariables = {||};
+export type LocationSelectorBoxContainerQueryResponse = {|
   +cities: $ReadOnlyArray<{|
     +name: string,
     +slug: string,
@@ -20,15 +20,15 @@ export type AppQueryResponse = {|
     |},
   |}>
 |};
-export type AppQuery = {|
-  variables: AppQueryVariables,
-  response: AppQueryResponse,
+export type LocationSelectorBoxContainerQuery = {|
+  variables: LocationSelectorBoxContainerQueryVariables,
+  response: LocationSelectorBoxContainerQueryResponse,
 |};
 */
 
 
 /*
-query AppQuery {
+query LocationSelectorBoxContainerQuery {
   cities {
     name
     slug
@@ -75,7 +75,7 @@ return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "AppQuery",
+    "name": "LocationSelectorBoxContainerQuery",
     "type": "Query",
     "metadata": null,
     "argumentDefinitions": [],
@@ -110,7 +110,7 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "AppQuery",
+    "name": "LocationSelectorBoxContainerQuery",
     "argumentDefinitions": [],
     "selections": [
       {
@@ -145,13 +145,13 @@ return {
   },
   "params": {
     "operationKind": "query",
-    "name": "AppQuery",
+    "name": "LocationSelectorBoxContainerQuery",
     "id": null,
-    "text": "query AppQuery {\n  cities {\n    name\n    slug\n    country {\n      name\n      isoCode\n      id\n    }\n    id\n  }\n}\n",
+    "text": "query LocationSelectorBoxContainerQuery {\n  cities {\n    name\n    slug\n    country {\n      name\n      isoCode\n      id\n    }\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'e3d0ff765a63d7ba9bf9fadb8a8844f3';
+(node/*: any*/).hash = 'e06f566e0426ebd3009d773a97598ab8';
 module.exports = node;

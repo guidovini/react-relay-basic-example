@@ -1,44 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { fetchQuery } from 'relay-runtime';
-
-import environment from '../environment';
+import React, { useState } from 'react';
 
 import SearchBox from './SearchBox';
-import LocationSelectorBox from './LocationSelectorBox';
 import JobsListContainer from './JobsListContainer';
-
-const query = graphql`
-  query AppQuery {
-    cities {
-      name
-      slug
-      country {
-        name
-        isoCode
-      }
-    }
-  }
-`;
+import LocationSelectorBoxContainer from './LocationSelectorBoxContainer';
 
 function App() {
-  const [locations, setLocations] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState('berlin');
   const [jobInput, setJobInput] = useState('');
-
-  useEffect(() => {
-    fetchQuery(environment, query).then(({ cities }) => {
-      setLocations(cities);
-    });
-  }, []);
 
   return (
     <div>
       <h1>GraphQL Jobs</h1>
-      <LocationSelectorBox
+      <LocationSelectorBoxContainer
         selectedLocation={selectedLocation}
-        locations={locations}
-        handleChange={setSelectedLocation}
+        setSelectedLocation={setSelectedLocation}
       />
       <SearchBox jobInput={jobInput} handleChange={setJobInput} />
 
