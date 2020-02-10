@@ -1,0 +1,4 @@
+schema: ./src/data/schema.graphql
+extensions:
+  endpoints:
+    default: https://api.graphql.jobs/
