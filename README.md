@@ -30,3 +30,4 @@
 ## Errors and Problems
 
 - `relay-compile` enforces the query to be named as `<FileName>Query`.
+- `fragment Fragment` problem solution [here](https://github.com/facebook/relay/issues/3007)
